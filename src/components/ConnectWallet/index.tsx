@@ -1,6 +1,7 @@
+import { Box } from "@mui/material";
+import Button from "@mui/material/Button";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
-
 export const CustomConnect = () => {
     return (
         <ConnectButton.Custom>
@@ -32,53 +33,98 @@ export const CustomConnect = () => {
                         {(() => {
                             if (!connected) {
                                 return (
-                                    <button onClick={openConnectModal} type="button">
+                                    <Button
+                                        variant="contained"
+                                        onClick={openConnectModal}
+                                        sx={{
+                                            bgcolor: "#00C6C5",
+                                            color: "black",
+                                            ":hover": {
+                                                bgcolor: "#00A8A7",
+                                            },
+                                        }}
+                                    >
                                         Connect Wallet
-                                    </button>
+                                    </Button>
                                 );
                             }
                             if (chain.unsupported) {
                                 return (
-                                    <button onClick={openChainModal} type="button">
+                                    <Button variant="contained" onClick={openChainModal} color="error">
                                         Wrong network
-                                    </button>
+                                    </Button>
                                 );
                             }
                             return (
-                                <div style={{ display: "flex", gap: 12 }}>
-                                    <button
+                                <Box display="flex" justifyContent="space-between">
+                                    <Button
                                         onClick={openChainModal}
-                                        style={{ display: "flex", alignItems: "center" }}
-                                        type="button"
+                                        sx={{
+                                            bgcolor: "#00C6C5",
+                                            color: "black",
+                                            width: {
+                                                md: "45%",
+                                                xs: "10%",
+                                            },
+                                            ":hover": {
+                                                bgcolor: "#00A8A7",
+                                            },
+                                        }}
+                                        variant="contained"
                                     >
-                                        {chain.hasIcon && (
-                                            <div
-                                                style={{
-                                                    background: chain.iconBackground,
-                                                    width: 12,
-                                                    height: 12,
-                                                    borderRadius: 999,
-                                                    overflow: "hidden",
-                                                    marginRight: 4,
+                                        <Box
+                                            display="flex"
+                                            sx={{
+                                                height: "100%",
+                                            }}
+                                        >
+                                            {chain.hasIcon && (
+                                                <Box display="flex" alignItems="center">
+                                                    {chain.iconUrl && (
+                                                        <Image
+                                                            alt={chain.name ?? "Chain icon"}
+                                                            src={chain.iconUrl}
+                                                            width={16}
+                                                            height={16}
+                                                        />
+                                                    )}
+                                                </Box>
+                                            )}
+                                            <Box
+                                                sx={{
+                                                    ml: "10px",
+                                                    height: "100%",
+                                                    mt: "2px",
+
+                                                    display: {
+                                                        xs: "none",
+                                                        md: "block",
+                                                    },
                                                 }}
                                             >
-                                                {chain.iconUrl && (
-                                                    <Image
-                                                        alt={chain.name ?? "Chain icon"}
-                                                        src={chain.iconUrl}
-                                                        width={12}
-                                                        height={12}
-                                                    />
-                                                )}
-                                            </div>
-                                        )}
-                                        {chain.name}
-                                    </button>
-                                    <button onClick={openAccountModal} type="button">
+                                                {chain.name}
+                                            </Box>
+                                        </Box>
+                                    </Button>
+                                    <Button
+                                        onClick={openAccountModal}
+                                        variant="contained"
+                                        sx={{
+                                            bgcolor: "#00C6C5",
+                                            display: "flex",
+                                            color: "black",
+
+                                            ":hover": {
+                                                bgcolor: "#00A8A7",
+                                            },
+                                            ml: "5px",
+                                        }}
+                                    >
                                         {account.displayName}
+
                                         {account.displayBalance ? ` (${account.displayBalance})` : ""}
-                                    </button>
-                                </div>
+                                    </Button>
+                                </Box>
                             );
                         })()}
                     </div>
