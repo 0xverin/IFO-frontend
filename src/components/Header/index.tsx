@@ -7,8 +7,10 @@ export default function Header() {
             sx={{
                 height: "65px",
                 width: "100%",
-                bgcolor: "#022129",
-                boxShadow: 2,
+                bgcolor: "rgb(8, 33, 41)",
+                boxShadow:
+                    "0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);",
+                zIndex: 9999,
             }}
         >
             <Box
@@ -34,13 +36,7 @@ export default function Header() {
                     alignItems="center"
                 >
                     <Image src="/logo.svg" width={50} height={50} alt="logo"></Image>
-                    <Box
-                        sx={{
-                            marginLeft: "10px",
-                        }}
-                    >
-                        IFO
-                    </Box>
+                    <Box>IFO</Box>
                 </Box>
                 <CustomConnect></CustomConnect>
             </Box>

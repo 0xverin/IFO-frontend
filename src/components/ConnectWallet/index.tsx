@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import Image from "next/image";
 export const CustomConnect = () => {
     return (
         <ConnectButton.Custom>
@@ -38,6 +37,7 @@ export const CustomConnect = () => {
                                         onClick={openConnectModal}
                                         sx={{
                                             bgcolor: "#00C6C5",
+                                            fontWeight: "600",
                                             color: "black",
                                             ":hover": {
                                                 bgcolor: "#00A8A7",
@@ -57,7 +57,7 @@ export const CustomConnect = () => {
                             }
                             return (
                                 <Box display="flex" justifyContent="space-between">
-                                    <Button
+                                    {/* <Button
                                         onClick={openChainModal}
                                         sx={{
                                             bgcolor: "#00C6C5",
@@ -105,7 +105,7 @@ export const CustomConnect = () => {
                                                 {chain.name}
                                             </Box>
                                         </Box>
-                                    </Button>
+                                    </Button> */}
                                     <Button
                                         onClick={openAccountModal}
                                         variant="contained"
@@ -113,7 +113,7 @@ export const CustomConnect = () => {
                                             bgcolor: "#00C6C5",
                                             display: "flex",
                                             color: "black",
-
+                                            fontWeight: "600",
                                             ":hover": {
                                                 bgcolor: "#00A8A7",
                                             },
