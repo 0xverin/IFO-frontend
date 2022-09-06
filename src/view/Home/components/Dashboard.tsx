@@ -4,7 +4,7 @@ export default function Dashboard() {
     return (
         <Box
             sx={{
-                height: "500px",
+                height: "350px",
                 width: {
                     md: "65%",
                 },

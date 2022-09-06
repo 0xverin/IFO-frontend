@@ -7,7 +7,7 @@ const Home: NextPage = () => {
         <Box
             sx={{
                 bgcolor: "#0a2a34",
-                height: "100vh",
+                minHeight: "100vh",
             }}
         >
             <Head>
