@@ -7,6 +7,7 @@ export default function Home() {
     return (
         <Box>
             <Dashboard></Dashboard>
+
             <Package></Package>
             <NFT></NFT>
             <Inviter></Inviter>
